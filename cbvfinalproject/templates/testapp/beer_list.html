@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html'%}
+{%block body_block%}
+<h1>BEER INFORMATION DASHBOARD</h1><hr>
+  <table border="3">
+    <thead>
+      <th>BEER NAME</th>
+      <th> DETAILS</th>
+      <th>UPDATE</th>
+      <th>DELETE</th>
+    </thead>
+{% for beer in beer_list %}
+<tr>
+  <td>{{beer.name|upper}}</td>
+  <td><a href="/{{beer.id}}">DETAILS</a></td>
+  <td><a href="/update/{{beer.id}}">UPDATE</a></td>
+  <td><a href="/delete/{{beer.id}}">DELETE</a></td>
+
+</tr>
+{% endfor%}
+  </table><br><br><br>
+  <a href="/create" class='btn btn-primary btn-lg'>INSERT NEW BEER</a>
+
+
+
+{% endblock %}
